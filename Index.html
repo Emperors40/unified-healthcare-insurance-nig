@@ -1,0 +1,298 @@
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Activity, ArrowRight, Clock, Star, TrendingUp } from "lucide-react"
+import Link from "next/link"
+import Image from "next/image"
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
+      <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-sm">
+        <div className="container flex h-14 items-center">
+          <Link href="/" className="flex items-center gap-2 font-bold">
+            <Activity className="h-5 w-5 text-blue-600" />
+            <span className="bg-gradient-to-r from-blue-600 via-pink-500 to-green-400 bg-clip-text text-transparent">
+              Unified Healthcare
+            </span>
+          </Link>
+          <div className="ml-auto flex items-center gap-2">
+            <Button variant="ghost" size="sm">
+              Login
+            </Button>
+            <Button size="sm">Get Started</Button>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section className="relative overflow-hidden bg-gradient-to-br from-blue-100 via-pink-50 to-green-100 px-4 py-16 md:py-24">
+          <div className="container">
+            <div className="mx-auto max-w-[800px] text-center">
+              <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-6xl">
+                AI-Powered Healthcare & Insurance Solutions for{" "}
+                <span className="bg-gradient-to-r from-pink-500 to-green-400 bg-clip-text text-transparent">
+                  Every Nigerian
+                </span>
+              </h1>
+              <p className="mb-8 text-gray-600 md:text-lg">
+                Experience the future of healthcare with AI-driven diagnostics, 3D printing solutions, and professional
+                training. All in one unified platform.
+              </p>
+              <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+                <Button className="bg-gradient-to-r from-blue-600 to-pink-500 text-white">
+                  Get Insured Today
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+                <Button variant="outline">View Plans</Button>
+              </div>
+              <div className="mt-8 flex items-center justify-center gap-2">
+                <div className="flex -space-x-2">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div
+                      key={i}
+                      className="ring-offset-background relative h-8 w-8 overflow-hidden rounded-full border-2 border-white bg-gradient-to-r from-blue-600 via-pink-500 to-green-400 p-[1px]"
+                    >
+                      <div className="h-full w-full rounded-full bg-white">
+                        <Image
+                          src={`/placeholder.svg?text=${i}`}
+                          alt={`User ${i}`}
+                          width={32}
+                          height={32}
+                          className="rounded-full"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <span className="text-sm text-gray-600">
+                  Trusted by <span className="font-bold text-blue-600">10,000+</span> Nigerians
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="px-4 py-16">
+          <div className="container">
+            <div className="mb-12 text-center">
+              <h2 className="text-3xl font-bold md:text-4xl">
+                Our{" "}
+                <span className="bg-gradient-to-r from-blue-600 via-pink-500 to-green-400 bg-clip-text text-transparent">
+                  Services
+                </span>
+              </h2>
+              <p className="mt-2 text-gray-600">
+                Comprehensive healthcare solutions powered by cutting-edge technology
+              </p>
+            </div>
+
+            <Tabs defaultValue="healthcare" className="mx-auto max-w-4xl">
+              <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4">
+                <TabsTrigger value="healthcare">Healthcare</TabsTrigger>
+                <TabsTrigger value="ai">AI Diagnostics</TabsTrigger>
+                <TabsTrigger value="printing">3D Printing</TabsTrigger>
+                <TabsTrigger value="training">Training</TabsTrigger>
+              </TabsList>
+              <TabsContent value="healthcare" className="mt-8">
+                <Card className="p-6">
+                  <div className="mb-4 h-12 w-12 rounded-full bg-gradient-to-r from-blue-600 to-blue-400 p-3 text-white">
+                    <Activity className="h-full w-full" />
+                  </div>
+                  <h3 className="mb-2 text-xl font-bold">Healthcare & Insurance</h3>
+                  <p className="mb-4 text-gray-600">AI-powered health coverage and diagnostics</p>
+                  <ul className="mb-6 space-y-2">
+                    <li className="flex items-center gap-2">
+                      <div className="h-5 w-5 text-green-500">✓</div>
+                      24/7 Health Monitoring
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="h-5 w-5 text-green-500">✓</div>
+                      Early Disease Detection
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="h-5 w-5 text-green-500">✓</div>
+                      Personalized Health Insights
+                    </li>
+                  </ul>
+                  <Button className="w-full">
+                    Learn More
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Card>
+              </TabsContent>
+              {/* Similar TabsContent for other services */}
+            </Tabs>
+          </div>
+        </section>
+
+        <section className="bg-gradient-to-br from-blue-50 via-white to-green-50 px-4 py-16">
+          <div className="container">
+            <div className="mb-12 text-center">
+              <h2 className="text-3xl font-bold md:text-4xl">
+                Affordable{" "}
+                <span className="bg-gradient-to-r from-blue-600 via-pink-500 to-green-400 bg-clip-text text-transparent">
+                  Healthcare Plans
+                </span>
+              </h2>
+              <p className="mt-2 text-gray-600">Get comprehensive coverage at an unbeatable price</p>
+            </div>
+
+            <div className="mx-auto max-w-sm">
+              <div className="relative">
+                <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-600 via-pink-500 to-green-400 opacity-75 blur" />
+                <Card className="relative border-2 border-blue-600 p-6">
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold">Complete Coverage Plan</h3>
+                    <div className="mt-2 flex items-baseline justify-center gap-1">
+                      <span className="text-4xl font-bold">₦10,000</span>
+                      <span className="text-gray-600">/year</span>
+                    </div>
+                    <Badge className="mt-2 bg-pink-500/10 text-pink-500">Most Popular</Badge>
+                  </div>
+                  <ul className="mt-6 space-y-3">
+                    {[
+                      "Full AI-powered health coverage",
+                      "Unlimited health scans & monitoring",
+                      "Access to 3D printed medical equipment",
+                      "Free medicine & treatments",
+                      "24/7 AI diagnostic support",
+                      "Training centre access",
+                    ].map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2">
+                        <div className="h-5 w-5 text-green-500">✓</div>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Button className="mt-6 w-full bg-gradient-to-r from-blue-600 via-pink-500 to-green-400">
+                    Get Started Now
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                  <p className="mt-4 text-center text-xs text-gray-500">No hidden fees. Cancel anytime.</p>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="px-4 py-16">
+          <div className="container">
+            <div className="mb-12 text-center">
+              <h2 className="text-3xl font-bold md:text-4xl">
+                Latest{" "}
+                <span className="bg-gradient-to-r from-blue-600 via-pink-500 to-green-400 bg-clip-text text-transparent">
+                  Healthcare Insights
+                </span>
+              </h2>
+              <p className="mt-2 text-gray-600">Stay informed with our expert articles on healthcare innovation</p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {[
+                {
+                  title: "Best Healthcare & Insurance Plans in Nigeria 2025",
+                  excerpt:
+                    "Discover the most comprehensive and affordable healthcare coverage options available in Nigeria...",
+                  category: "Insurance",
+                  readTime: "5 min read",
+                  rating: 4.9,
+                  trending: true,
+                },
+                {
+                  title: "How AI is Revolutionizing Nigerian Healthcare",
+                  excerpt: "Explore how artificial intelligence is transforming the healthcare landscape in Nigeria...",
+                  category: "Technology",
+                  readTime: "7 min read",
+                  rating: 4.9,
+                  trending: true,
+                },
+                {
+                  title: "Why 3D Printing Will Change Nigeria's Medical Industry",
+                  excerpt: "Learn about the impact of 3D printing technology on medical equipment manufacturing...",
+                  category: "Innovation",
+                  readTime: "6 min read",
+                  rating: 4.9,
+                  trending: false,
+                },
+              ].map((post, i) => (
+                <Card key={i} className="group overflow-hidden">
+                  <div className="relative">
+                    <Image
+                      src="/placeholder.svg"
+                      alt={post.title}
+                      width={600}
+                      height={400}
+                      className="aspect-video object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute left-4 top-4 flex gap-2">
+                      <Badge variant="secondary" className="bg-white/90">
+                        {post.category}
+                      </Badge>
+                      {post.trending && (
+                        <Badge className="bg-pink-500 text-white">
+                          <TrendingUp className="mr-1 h-3 w-3" />
+                          Trending
+                        </Badge>
+                      )}
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="mb-2 text-xl font-bold transition-colors group-hover:text-blue-600">{post.title}</h3>
+                    <p className="mb-4 text-gray-600">{post.excerpt}</p>
+                    <div className="flex items-center gap-4 text-sm text-gray-500">
+                      <div className="flex items-center gap-1">
+                        <Clock className="h-4 w-4" />
+                        {post.readTime}
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Star className="h-4 w-4 text-yellow-400" />
+                        {post.rating}
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+
+            <div className="mt-12 text-center">
+              <Button variant="outline" size="lg">
+                View All Articles
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t bg-white px-4 py-8">
+        <div className="container">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <Link href="/" className="flex items-center gap-2 font-bold">
+              <Activity className="h-5 w-5 text-blue-600" />
+              <span className="bg-gradient-to-r from-blue-600 via-pink-500 to-green-400 bg-clip-text text-transparent">
+                Unified Healthcare
+              </span>
+            </Link>
+            <nav className="flex gap-6">
+              <Link href="/terms" className="text-sm text-gray-600 hover:text-blue-600">
+                Terms
+              </Link>
+              <Link href="/privacy" className="text-sm text-gray-600 hover:text-blue-600">
+                Privacy
+              </Link>
+              <Link href="/contact" className="text-sm text-gray-600 hover:text-blue-600">
+                Contact
+              </Link>
+            </nav>
+          </div>
+          <div className="mt-8 text-center text-sm text-gray-500">
+            © 2024 Unified Healthcare Insurance NIG. All rights reserved.
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}
+
